@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
 import assets from '../assets/assets'
 import ThemeToggleBtn from './ThemeToggleBtn'
+import { motion } from "motion/react"
 
 const Navbar = ({theme, setTheme}) => {
 
     const [sidebarOpen, setSiderbarOpen] = useState(false)
 
   return (
-    <div className='flex justify-between items-center px-4
+    <motion.div 
+    initial={{opacity: 0, y: -50}}
+    animate={{opacity: 1, y: 0}}
+    transition={{duration: 0.6, ease: 'easeOut'}}
+    className='flex justify-between items-center px-4
     sm:px-12 lg:px-24 xl:px-40 py-4 sticky top-0 z-20
     backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70'>
      
@@ -25,7 +30,7 @@ const Navbar = ({theme, setTheme}) => {
         <a onClick={()=> setSiderbarOpen(false)} href='#' className='sm:hover:border-b'>Home</a>
         <a onClick={()=> setSiderbarOpen(false)} href='#services' className='sm:hover:border-b'>Services</a>
         <a onClick={()=> setSiderbarOpen(false)} href='#our-work' className='sm:hover:border-b'>Our Work</a>
-        <a onClick={()=> setSiderbarOpen(false)} href='#contact-use' className='sm:hover:border-b'>Contact Us</a>
+        <a onClick={()=> setSiderbarOpen(false)} href='#contact-us' className='sm:hover:border-b'>Contact Us</a>
       </div> 
       
       <div className='flex items-center gap-2 sm:gap-4'>
@@ -42,7 +47,7 @@ const Navbar = ({theme, setTheme}) => {
         </a>
       </div>
      
-    </div>
+    </motion.div>
   )
 }
 
